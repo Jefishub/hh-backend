@@ -8,18 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @ResponseBody
 public class HelloController {
-		
-	@RequestMapping("/about")
-	public String about() {
-		return "This is the about page";
-	}
-	
-	@RequestMapping("/moikkaa")
-	@ResponseBody
-	public String sayHelloToSomeone(@RequestParam(name="nimesi", required=false, defaultValue="Muumi") String nimi,
-			@RequestParam(name="ika", required=false, defaultValue="1") int age) {
-		return "Hei " + nimi + " " + age + " vuotta.";
-	}
 
 	@RequestMapping("/index")
 	public String index() {
@@ -33,8 +21,22 @@ public class HelloController {
 	
 	@RequestMapping("/hello")
 	@ResponseBody
-	public String welcome(@RequestParam(name="location", required=false, defaultValue="John Doe") String location,
-			@RequestParam(name="name", required=false, defaultValue="somewhere") String name) {
+	public String welcome(@RequestParam(name="name", required=false, defaultValue="John Doe") String name,
+			@RequestParam(name="location", required=false, defaultValue="Special Place") String location) {
 		return "Welcome to the " + location + " " + name + " !";
 	}
+	
+	/*		
+	@RequestMapping("/about")
+	public String about() {
+		return "This is the about page";
+	}
+	
+	@RequestMapping("/moikkaa")
+	@ResponseBody
+	public String sayHelloToSomeone(@RequestParam(name="nimesi", required=false, defaultValue="Muumi") String nimi,
+			@RequestParam(name="ika", required=false, defaultValue="1") int age) {
+		return "Hei " + nimi + " " + age + " vuotta.";
+	}
+	 */
 }
